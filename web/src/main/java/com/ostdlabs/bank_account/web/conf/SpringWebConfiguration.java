@@ -1,24 +1,28 @@
 package com.ostdlabs.bank_account.web.conf;
 
+import com.ostdlabs.bank_account.core.config.CoreSpringConfig;
+import com.ostdlabs.bank_account.db.config.DBSpringConfig;
+import com.ostdlabs.bank_account.web.controller.RootController;
 import com.ostdlabs.bank_account.web.service.AccountService;
+import com.ostdlabs.bank_account.web.util.AccountConverter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import ru.bn.subscription_counter.core.config.CoreSpringConfig;
-import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
-import com.ostdlabs.bank_account.web.controller.RootController;
-import ru.bn.subscription_counter.db.config.DBSpringConfig;
 
 /**
  * Конфигурация Spring MVC.
  */
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackageClasses = { RootController.class, AccountService.class})
+@ComponentScan(basePackageClasses = { RootController.class, AccountService.class, AccountConverter.class})
 @Import({DBSpringConfig.class, CoreSpringConfig.class})
 public class SpringWebConfiguration extends WebMvcConfigurerAdapter {
 

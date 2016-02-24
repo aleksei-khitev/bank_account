@@ -1,18 +1,22 @@
-package com.ostdlabs.bank_account.web.vo;
+package com.ostdlabs.bank_account.db.entity;
 
-public class AccountVO {
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Account")
+@SequenceGenerator(name = "seq", initialValue = 20)
+public class AccountEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
     private Integer id;
+
+    @Column(name = "iban", nullable = false)
     private String iban;
+
+    @Column(name = "bic", nullable = false)
     private String bic;
-
-    public AccountVO() {
-    }
-
-    public AccountVO(Integer id, String iban, String bic) {
-        this.id = id;
-        this.iban = iban;
-        this.bic = bic;
-    }
 
     public Integer getId() {
         return id;
@@ -40,7 +44,7 @@ public class AccountVO {
 
     @Override
     public String toString() {
-        return "AccountVO{" +
+        return "AccountEntity{" +
                 "id=" + id +
                 ", iban='" + iban + '\'' +
                 ", bic='" + bic + '\'' +

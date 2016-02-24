@@ -14,12 +14,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>ru.bn</groupId>
+            <groupId>com.ostdlabs</groupId>
             <artifactId>core</artifactId>
             <version>0.0.2</version>
         </dependency>
         <dependency>
-            <groupId>ru.bn</groupId>
+            <groupId>com.ostdlabs</groupId>
             <artifactId>db</artifactId>
             <version>0.0.2</version>
         </dependency>
@@ -194,6 +194,14 @@
                 <configuration>
                     <argLine>-Xss38m</argLine>
                     <argLine>-Xmx512m</argLine>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
