@@ -34,8 +34,8 @@ public class AccountServiceImpl implements AccountService {
         accountRepository.saveAndFlush(accountConverter.toEntity(accountVO));
     }
 
-    public void remove(AccountVO accountVO) {
-        accountRepository.delete(accountConverter.toEntity(accountVO));
+    public void remove(Integer id) {
+        accountRepository.delete(id);
     }
 
 }

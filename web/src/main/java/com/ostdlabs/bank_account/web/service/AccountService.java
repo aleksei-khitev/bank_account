@@ -9,5 +9,5 @@ public interface AccountService {
     AccountVO get(Integer id);
     void create(AccountVO accountVO);
     void update(AccountVO accountVO);
-    void remove(AccountVO accountVO);
+    void remove(Integer id);
 }

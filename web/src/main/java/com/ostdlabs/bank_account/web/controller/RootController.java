@@ -20,13 +20,7 @@ import static org.springframework.web.context.WebApplicationContext.SCOPE_SESSIO
 @Scope(value = SCOPE_SESSION)
 @RequestMapping(value = "/", method = RequestMethod.GET, produces = {"text/plain;charset=UTF-8"})
 public class RootController{
-
-    public static final String APP_JSON_PRODUCES = "application/json";
-
     private static final String PROJECT_VERSION = "1.0.13";
-
-    @Inject
-    private AccountService accountService;//NOPMD
 
     @RequestMapping(value = "/")
     public ModelAndView propertiesTab() {
@@ -34,7 +28,6 @@ public class RootController{
         try {
             model.setViewName("index");
             model.addObject("projectVersion", PROJECT_VERSION);
-            model.addObject("accounts", accountService.list());
         } catch (PersistenceException | EmptyResultDataAccessException exception) { // TODO: разобраться с ошибками в spring mvc
             model.setViewName("error");
             model.addObject("title", "A data error has occurred. contact your administrator");
