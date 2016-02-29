@@ -5,10 +5,7 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-  <link href="<c:url value='/css/simpletabs.css' />" type="text/css" rel="stylesheet"/>
-  <link href="<c:url value='/css/dataTables.tableTools.css' />" type="text/css" rel="stylesheet"/>
   <link href="<c:url value='/css/normalize.css' />" type="text/css" rel="stylesheet"/>
-  <link href="<c:url value='/css/datepicker.css' />" type="text/css" rel="stylesheet"/>
   <link href="<c:url value='/css/jquery.dataTables.min.css' />" type="text/css" rel="stylesheet"/>
   <link href="<c:url value='/css/jquery-ui.css' />" type="text/css" rel="stylesheet"/>
   <link href="<c:url value='/css/styles.css' />" type="text/css" rel="stylesheet"/>
@@ -21,10 +18,8 @@
   <script src="<c:url value='/js/jquery.validate.min.js' />" type="text/javascript"></script>
   <script src="<c:url value='/js/additional-methods.min.js' />" type="text/javascript"></script>
   <script src="<c:url value='/js/bank_account.js' />" charset="utf-8" type="text/javascript"></script>
-  <script src="<c:url value='/js/simpletabs_1.3.js' />" charset="utf-8" type="text/javascript"></script>
   <script src="<c:url value='/js/jquery-ui.js' />" type="text/javascript"></script>
   <script src="<c:url value='/js/datatables.min.js' />" type="text/javascript"></script>
-  <script src="<c:url value='/js/dataTables.tableTools.js' />" charset="utf-8" type="text/javascript"></script>
   <script src="<c:url value='/js/jquery.mask.js' />" type="text/javascript"></script>
   <title>Bank Accounts</title>
 </head>

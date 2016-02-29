@@ -27,33 +27,6 @@ section {
     padding:10px;
 }
 
-.ui-datepicker {
-    width: 216px;
-    height: auto;
-    margin: 5px auto 0;
-    font: 9pt Arial, sans-serif;
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
-    background-color: #FFF;
-}
-
-.ui-datepicker-calendar .ui-state-active {
-    background: #6eafbf;
-    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, .1);
-    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, .1);
-    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, .1);
-    color: #e0e0e0;
-    text-shadow: 0px 1px 0px #4d7a85;
-    filter: dropshadow(color=#4d7a85, offx=0, offy=1);
-    border: 1px solid #55838f;
-    position: relative;
-    margin: -1px;
-    opacity: 0;
-}
-.ui-datepicker td span, .ui-datepicker td a{ width:23px; height:23px}
-
-/* Нижняя часть страницы, в которой данные о пользователе и сессии */
 footer {
     background-color:#4F607F;
     color:white;
@@ -66,28 +39,6 @@ footer {
 /* Все заголовки */
 h2,h3 {
     color: #040939;
-}
-
-/* Список организаций слева */
-.organization_list {
-    width:335px;
-    height: 550px;
-}
-.organization_filter {
-    width:330px;
-}
-
-/* Названия строк таблицы с количеством постановок */
-.table_header_cell {
-    color: #040939; position:relative; padding:3px;
-}
-
-.subscription_list {
-    width:200px;
-}
-
-.statement_count {
-    width:50px;
 }
 
 .js_valid_error{
@@ -124,15 +75,7 @@ h2,h3 {
     background:#e3f7fc no-repeat 10px 50%;
     border:1px solid #8ed9f6;
 }
-.cancelledrow{
-    background: #FF7F50;
-}
-.addedrow{
-    background: #98FB98;
-	white-space:nowrap
-}
-.statement-type-with-base{
-    color: darkgreen; text-shadow:0 0 1px green}
+
 .text-field{
     width: 135px;
 }
@@ -165,40 +108,13 @@ h2,h3 {
     margin-top: 0em;
     font-size: 100%;
 }
-#staticstic_tabs .ui-tabs-panel{
-    background-color: white;
+td.edit {
+    background-image: url("/css/images/edit.png");
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
 }
-#staticstic_tabs .ui-tabs-nav li {
-    margin-top: 0.6em;
-    font-size: 80%;
-    background-color: white;
+td.remove {
+    background-image: url("/css/images/delete.png");
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
 }
-#staticstic_tabs .ui-tabs-nav li.ui-tabs-selected,
-#staticstic_tabs .ui-tabs-nav li.ui-state-active {
-    margin-top: 0em;
-    font-size: 100%;
-}
-
-#change_statement_base_form table{ margin-bottom:20px; }
-#change_statement_base_form table td{ padding:3px; position:relative}
-#statement_base_change_button{ position:absolute; right:-100px; top:-8px;
-    padding: 10px 16px;
-    font-size: 18px;
-    line-height: 1.3333333;
-    border-radius: 6px;
-   color: #333;
-    background-color: #eee;
-    border-color: #ccc;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    border-radius: 4px;
-}
-#statement_used.text-field{ background:#FF7F50; }
-#statement_left.text-field{ background:#98FB98;}

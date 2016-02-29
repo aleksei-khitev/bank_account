@@ -2,6 +2,7 @@ package com.ostdlabs.bank_account.web.controller;
 
 import com.ostdlabs.bank_account.web.conf.SpringWebConfiguration;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,7 @@ public class AccountRestControllerTest {
                 .build();
     }
 
+    @Ignore
     @Test
     public void testList() throws Exception {
         ResultActions result = mockMvc.perform(get("http://localhost/bank_accounts/list/"));
