@@ -12,7 +12,7 @@
     </tfoot>
     <tbody></tbody>
 </table>
-<button id="addAccount">Add account</button>
+
 <div style="display: none" >
     <div id="editAccount" title="Account Edit">
         <form>

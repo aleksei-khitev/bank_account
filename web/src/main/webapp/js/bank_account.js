@@ -33,30 +33,38 @@
         dataTab.destroy();
       }
       dataTab = $("#bank_accounts_table").DataTable({
-        dom: 'T<"clear">lfrtip',
-        "data": data,
-        "columns": [
+        dom: 'Bfrtip',
+        data: data,
+        buttons: [
           {
-            "render": function(data, type, row) {
+            text: "Add",
+            action: function ( e, dt, node, config ) {
+              alert( 'Button activated' );
+            }
+          }
+        ],
+        columns: [
+          {
+            render: function(data, type, row) {
               return "";
             },
-            "visible": false
+            visible: false
           }, {
-            "data": "iban",
-            "title": "IBAN"
+            data: "iban",
+            title: "IBAN"
           }, {
-            "data": "bic",
-            "title": "BIC"
+            data: "bic",
+            title: "BIC"
           }, {
-            "className":      'edit',
-            "orderable":      false,
-            "data":           null,
-            "defaultContent": ''
+            className:      'edit',
+            orderable:      false,
+            data:           null,
+            defaultContent: ''
           }, {
-            "className":      'remove',
-            "orderable":      false,
-            "data":           null,
-            "defaultContent": ''
+            className:      'remove',
+            orderable:      false,
+            data:           null,
+            defaultContent: ''
           }
         ]
       });
@@ -76,8 +84,5 @@
     });
   }
 
-  $("#addAccount").click(function(){
-    openEditDialog("","","");
-  });
   refresh();
 }).call(this);
