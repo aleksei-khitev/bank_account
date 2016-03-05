@@ -108,6 +108,11 @@ h2,h3 {
     margin-top: 0em;
     font-size: 100%;
 }
+a.dt-button.add {
+    background-image: url("/css/images/add.png");
+    background-size: 25px 25px;
+    height:25px;
+}
 td.edit {
     background-image: url("/css/images/edit.png");
     background-size: 25px 25px;

@@ -10,8 +10,9 @@
             refresh();
             $("#operation_status").html("");
           });
-        }
-      },
+          $( this ).dialog( "close" );
+        },
+  },
       open: function() {
         $("#idText").val(id);
         $("#bicText").val(bic);
@@ -27,7 +28,6 @@
 
   function refresh() {
     $("#bank_accounts_table  > tbody").html("");
-    $("#operation_status").html("<div id='status' class='alert-box notice'><span>loading: </span>Loading accounts in progress</div>");
     return $.getJSON("" + ctx + "/bank_accounts/list/", function(data) {
       if (dataTab !== null) {
         dataTab.destroy();
@@ -37,9 +37,9 @@
         data: data,
         buttons: [
           {
-            text: "Add",
+            className: 'add',
             action: function ( e, dt, node, config ) {
-              alert( 'Button activated' );
+              openEditDialog("","","");
             }
           }
         ],
@@ -68,6 +68,7 @@
           }
         ]
       });
+
       $('#bank_accounts_table tbody').on('click', 'td.edit', function () {
         var data = dataTab.row( $(this).parents('tr') ).data();
         openEditDialog(data.id,data.bic, data.iban);
@@ -76,11 +77,14 @@
         var data = dataTab.row( $(this).parents('tr') ).data();
         $("#operation_status").html("<div id='status' class='alert-box notice'><span>loading: </span>Removing in progress</div>");
         $.getJSON("" + ctx + "/bank_accounts/remove?id=" +data.id, function(d) {
+          if (d.hasErrors) {
+            $("#operation_status").html("<div id='status' class='alert-box error'><span>error: </span>"+ d.errors+"</div>");
+          } else {
+            $("#operation_status").html("<div id='status' class='alert-box success'><span>successed: </span>Removed</div>");
+          }
           refresh();
-          $("#operation_status").html("");
         });
       });
-      $("#operation_status").html("");
     });
   }
 

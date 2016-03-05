@@ -1,4 +1,4 @@
-package com.ostdlabs.bank_account.web.status;
+package com.ostdlabs.bank_account.web.vo;
 
 import java.util.List;
 
@@ -11,6 +11,10 @@ public class OperationStatus {
         this.message = message;
         this.hasErrors = hasErrors;
         this.errors = errors;
+    }
+
+    public static OperationStatus newInstance(String message, boolean hasErrors, List<String> errors) {
+        return new OperationStatus(message, hasErrors, errors);
     }
 
     public String getMessage() {

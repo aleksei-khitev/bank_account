@@ -2,11 +2,13 @@ package com.ostdlabs.bank_account.web.controller;
 
 import com.ostdlabs.bank_account.web.service.AccountService;
 import com.ostdlabs.bank_account.web.vo.AccountVO;
+import com.ostdlabs.bank_account.web.vo.OperationStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.inject.Inject;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -25,13 +27,15 @@ public class AccountRestController {
     }
 
     @RequestMapping(value = "/bank_accounts/save")
-    public void save(@RequestParam Integer id, @RequestParam String iban, @RequestParam String bic) {
+    public OperationStatus save(@RequestParam Integer id, @RequestParam String iban, @RequestParam String bic) {
         AccountVO vo = new AccountVO(id, iban, bic);
         accountService.update(vo);
+        return OperationStatus.newInstance("Saving was correct", false, Collections.emptyList());
     }
 
     @RequestMapping(value = "/bank_accounts/remove")
-    public void remove(@RequestParam Integer id) {
+    public OperationStatus remove(@RequestParam Integer id) {
         accountService.remove(id);
+        return OperationStatus.newInstance("Saving was correct", false, Collections.emptyList());
     }
 }
