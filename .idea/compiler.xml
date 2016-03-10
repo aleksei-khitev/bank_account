@@ -38,11 +38,18 @@
         <processorPath useClasspath="true" />
         <module name="db" />
       </profile>
+      <profile default="false" name="Annotation profile for jms" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jms" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="bank_account" target="1.5" />
-      <module name="core" target="1.7" />
       <module name="db" target="1.7" />
+      <module name="jms" target="1.8" />
       <module name="web" target="1.8" />
     </bytecodeTargetLevel>
   </component>

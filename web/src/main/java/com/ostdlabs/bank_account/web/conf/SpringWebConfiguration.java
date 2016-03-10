@@ -1,6 +1,6 @@
 package com.ostdlabs.bank_account.web.conf;
 
-import com.ostdlabs.bank_account.core.config.CoreSpringConfig;
+import com.ostdlabs.bank_account.jms.config.JmsSpringConfig;
 import com.ostdlabs.bank_account.db.config.DBSpringConfig;
 import com.ostdlabs.bank_account.web.controller.RootController;
 import com.ostdlabs.bank_account.web.service.AccountService;
@@ -23,7 +23,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackageClasses = { RootController.class, AccountService.class, AccountConverter.class})
-@Import({DBSpringConfig.class, CoreSpringConfig.class})
+@Import({DBSpringConfig.class, JmsSpringConfig.class})
 public class SpringWebConfiguration extends WebMvcConfigurerAdapter {
 
     /**
