@@ -27,7 +27,6 @@ import java.util.List;
 public class TestServer {
     private static final int DEFAULT_PORT = 8080;
     private static final String CONTEXT_PATH = "/";
-    private static final String CONFIG_LOCATION = "eu.kielczewski.example.config";
     private static final String MAPPING_URL = "/*";
     private static final String DEFAULT_PROFILE = "dev";
 
@@ -46,9 +45,9 @@ public class TestServer {
         ServletContextHandler contextHandler = new ServletContextHandler();
         contextHandler.setErrorHandler(null);
         contextHandler.setContextPath(CONTEXT_PATH);
-        contextHandler.addServlet(new ServletHolder(new DispatcherServlet(context)), MAPPING_URL);
+        contextHandler.addServlet(new ServletHolder("default", new DispatcherServlet(context)), MAPPING_URL);
         contextHandler.addEventListener(new ContextLoaderListener(context));
-        contextHandler.setResourceBase(new ClassPathResource("webapp").getURI().toString());
+//        contextHandler.setResourceBase("src/main/webapp");
         return contextHandler;
     }
 
