@@ -15,7 +15,7 @@
 
 <div style="display: none" >
     <div id="editAccount" title="Account Edit">
-        <form>
+        <form id="editAccount" name="editAccount">
             <table>
                 <tr>
                     <td><input type="text" id="idText" name="id" readonly="readonly" hidden="hidden" /></td>

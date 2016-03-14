@@ -88,5 +88,26 @@
     });
   }
 
+  $("#editAccount").validate({
+    //errorLabelContainer: $("#add_statement_form div.error"),
+    wrapper: 'li',
+    rules: {
+      bicText: {
+        required: true
+      },
+      ibanText: {
+        required: true
+      }
+    },
+    messages: {
+      bicText: {
+        required: "Телефон не может быть пустым"
+      },
+      ibanText: {
+        required: "Количество постановок не может быть пустым"
+      }
+    }
+  });
+
   refresh();
 }).call(this);
