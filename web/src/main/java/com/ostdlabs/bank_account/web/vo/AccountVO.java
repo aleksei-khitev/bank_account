@@ -1,5 +1,8 @@
 package com.ostdlabs.bank_account.web.vo;
 
+/**
+ * Calue object for Account entity
+ */
 public class AccountVO {
     private Integer id;
     private String iban;

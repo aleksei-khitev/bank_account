@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.inject.Named;
 
+/** {@inheritDoc} */
 @Named
 public class JmsListenerImpl implements JmsListener {
     private static final Logger logger = LoggerFactory.getLogger(JmsListenerImpl.class);

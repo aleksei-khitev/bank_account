@@ -9,6 +9,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.inject.Inject;
 
+/**
+ * For testing jms.
+ * It's works. For tests running test mq.
+ * TODO: code all test cases.
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {JmsSpringConfig.class})
 public class JmsSenderImplTest {

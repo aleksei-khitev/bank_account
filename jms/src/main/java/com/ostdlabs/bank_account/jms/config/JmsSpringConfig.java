@@ -8,7 +8,6 @@ import com.ostdlabs.bank_account.jms.service.JmsListener;
 import com.ostdlabs.bank_account.jms.service.JmsSender;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,24 +19,18 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
 import org.springframework.jms.listener.adapter.MessageListenerAdapter;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
+/** JMS config. */
 @Configuration
 @ComponentScan(basePackageClasses={JmsSender.class})
 @PropertySource("classpath:jms.properties")
 public class JmsSpringConfig {
 
+    /** For taking mq server url and queue name from file jms.properties. */
     @Inject
     private Environment env;
 
     @Inject
     JmsListener listener;
-
-   @Bean
-   public DateFormat dateFormat(){
-        return new SimpleDateFormat("dd.MM.yyyy");
-    }
 
     @Bean
     public ConnectionFactory amqConnectionFactory() {
@@ -67,6 +60,7 @@ public class JmsSpringConfig {
         return new MessageListenerAdapter(listener);
     }
 
+    /** For real time messagies handling from queue. */
     @Bean
     public DefaultMessageListenerContainer messageListenerContainer() {
         DefaultMessageListenerContainer messageListenerContainer = new DefaultMessageListenerContainer();

@@ -2,15 +2,13 @@ package com.ostdlabs.bank_account.jms.service.impl;
 
 import com.ostdlabs.bank_account.jms.service.JmsSender;
 import org.springframework.jms.core.JmsOperations;
-import org.springframework.jms.core.MessageCreator;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Queue;
-import javax.jms.Session;
 
+/** {@inheritDoc} */
 @Named
 public class JmsSenderImpl implements JmsSender {
 

@@ -15,18 +15,19 @@
 
 <div style="display: none" >
     <div id="editAccount" title="Account Edit">
-        <form id="editAccount" name="editAccount">
+        <form id="editAccountForm" name="editAccountForm">
+            <div id="valid_error" name="valid_error" class="js_valid_error"></div>
             <table>
                 <tr>
                     <td><input type="text" id="idText" name="id" readonly="readonly" hidden="hidden" /></td>
                 </tr>
                 <tr>
                     <td><label for="bicText">BIC</label></td>
-                    <td><input type="text" id="bicText" name="v" /></td>
+                    <td><input type="text" id="bicText" name="bicText" /></td>
                 </tr>
                 <tr>
                     <td><label for="ibanText">IBAN</label></td>
-                    <td><input type="text" id="ibanText" name="iban" /></td>
+                    <td><input type="text" id="ibanText" name="ibanText" /></td>
                 </tr>
             </table>
         </form>

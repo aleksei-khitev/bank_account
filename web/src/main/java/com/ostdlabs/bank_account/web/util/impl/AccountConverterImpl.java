@@ -10,9 +10,11 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
+/** {@inheritDoc} */
 @Named
 public class AccountConverterImpl implements AccountConverter {
 
+    /** {@inheritDoc} */
     public AccountVO toVO(AccountEntity entity) {
         if (entity == null) {
             throw new IllegalArgumentException("Entity is null.");
@@ -26,10 +28,12 @@ public class AccountConverterImpl implements AccountConverter {
         return new AccountVO(entity.getId(), entity.getIban(), entity.getBic());
     }
 
+    /** {@inheritDoc} */
     public List<AccountVO> toVOs(List<AccountEntity> entities) {
         return entities.stream().map(this::toVO).collect(toList());
     }
 
+    /** {@inheritDoc} */
     public AccountEntity toEntity(AccountVO VO) {
         if (VO == null) {
             throw new IllegalArgumentException("Value Object is null.");
@@ -49,6 +53,7 @@ public class AccountConverterImpl implements AccountConverter {
         return entity;
     }
 
+    /** {@inheritDoc} */
     public List<AccountEntity> toEntities(List<AccountVO> VOs) {
         return VOs.stream().map(this::toEntity).collect(toList());
     }

@@ -18,7 +18,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 /**
- * Конфигурация Spring MVC.
+ * Spring MVC configuration.
  */
 @EnableWebMvc
 @Configuration
@@ -26,37 +26,25 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @Import({DBSpringConfig.class, JmsSpringConfig.class})
 public class SpringWebConfiguration extends WebMvcConfigurerAdapter {
 
-    /**
-     * Конфигурация сервлета Spring
-     */
+    /** Spring servlet config.*/
     @Override
     public void configureDefaultServletHandling(final DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
 
-    /**
-     * Определение подключаемых ресурсов.
-     * Если не задать тут, то не подхватятся скрипты и стили.
-     * @param registry На этом объекте и производится подключение.
-     */
+    /** Resources defenitions (js, css and other). */
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/css/**").addResourceLocations("/css/");//NOPMD
         registry.addResourceHandler("/js/**").addResourceLocations("/js/");//NOPMD
     }
 
-    /**
-     * Требуется для работы Spring
-     */
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertyPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
-    /**
-     * Определение представлений.
-     * @return На этом объекте и происходит определение размещения представлений.
-     */
+    /** Views definitions. */
     @Bean
     public UrlBasedViewResolver jspViewResolver() {
         final UrlBasedViewResolver viewResolver = new InternalResourceViewResolver();

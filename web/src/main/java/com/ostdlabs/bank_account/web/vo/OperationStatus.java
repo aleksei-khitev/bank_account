@@ -2,6 +2,9 @@ package com.ostdlabs.bank_account.web.vo;
 
 import java.util.List;
 
+/**
+ * Class for recieving status of operation on ui.
+ */
 public class OperationStatus {
     private String message;
     private boolean hasErrors;
@@ -13,6 +16,7 @@ public class OperationStatus {
         this.errors = errors;
     }
 
+    /** Factory method for convenience */
     public static OperationStatus newInstance(String message, boolean hasErrors, List<String> errors) {
         return new OperationStatus(message, hasErrors, errors);
     }

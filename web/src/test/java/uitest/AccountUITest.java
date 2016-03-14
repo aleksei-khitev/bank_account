@@ -18,6 +18,11 @@ import org.springframework.web.context.WebApplicationContext;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
 
+/**
+ * For UI tests.
+ * It's successfully started.
+ * TODO: code tests for all operations cases.
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {SpringWebConfiguration.class})
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)

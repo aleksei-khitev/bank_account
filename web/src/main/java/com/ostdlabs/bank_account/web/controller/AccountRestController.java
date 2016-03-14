@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/** Controller for REST points. */
 @RestController
 public class AccountRestController {
     @Inject

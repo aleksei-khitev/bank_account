@@ -8,14 +8,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import static org.springframework.web.context.WebApplicationContext.SCOPE_SESSION;
 
-/**
- * Основной контроллер Spring MVC
- */
+/** Spring MVC main controller. */
 @Controller
 @Scope(value = SCOPE_SESSION)
 @RequestMapping(value = "/", method = RequestMethod.GET, produces = {"text/plain;charset=UTF-8"})
 public class RootController{
 
+    /** For showing start page.  */
     @RequestMapping(value = "/")
     public ModelAndView propertiesTab() {
         final ModelAndView model = new ModelAndView();

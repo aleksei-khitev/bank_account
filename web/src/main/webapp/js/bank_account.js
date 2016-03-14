@@ -1,16 +1,44 @@
 (function() {
   var dataTab = null;
 
+  $("#editAccountForm").validate({
+        errorLabelContainer: $("#valid_error"),
+        wrapper: 'li',
+        rules: {
+            bicText: {
+                required: true
+            },
+            ibanText: {
+                required: true
+            }
+        },
+        messages: {
+            bicText: {
+                required: "BIC can't be empty"
+            },
+            ibanText: {
+                required: "IBAN can't be empty"
+            }
+        }
+    });
+
   function openEditDialog(id, bic, iban) {
     $("#editAccount").dialog({
       buttons: {
         "Save": function() {
-          $("#operation_status").html("<div id='status' class='alert-box notice'><span>loading: </span>Saving in progress</div>");
-          $.getJSON("" + ctx + "/bank_accounts/save?id=" +$("#idText").val()+"&bic="+$("#bicText").val()+"&iban="+$("#ibanText").val(), function(d) {
-            refresh();
-            $("#operation_status").html("");
-          });
-          $( this ).dialog( "close" );
+          var isFormValid = $(this).valid();
+          if (isFormValid) {
+            $("#operation_status").html("<div id='status' class='alert-box notice'><span>loading: </span>Saving in progress</div>");
+            $.getJSON("" + ctx + "/bank_accounts/save?id=" + $("#idText").val() + "&bic=" + $("#bicText").val() + "&iban=" + $("#ibanText").val(), function (d) {
+              refresh();
+                if (d.hasErrors) {
+                    $("#operation_status").html("<div id='status' class='alert-box error'><span>error: </span>"+ d.errors+"</div>");
+                } else {
+                    $("#operation_status").html("<div id='status' class='alert-box success'><span>saved: </span>Removed</div>");
+                }
+            });
+            $(this).dialog("close");
+          }
         },
   },
       open: function() {
@@ -87,27 +115,6 @@
       });
     });
   }
-
-  $("#editAccount").validate({
-    //errorLabelContainer: $("#add_statement_form div.error"),
-    wrapper: 'li',
-    rules: {
-      bicText: {
-        required: true
-      },
-      ibanText: {
-        required: true
-      }
-    },
-    messages: {
-      bicText: {
-        required: "Телефон не может быть пустым"
-      },
-      ibanText: {
-        required: "Количество постановок не может быть пустым"
-      }
-    }
-  });
 
   refresh();
 }).call(this);
